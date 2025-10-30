@@ -1,66 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ashlesa Behera | Frontend Developer</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<style>
-body {
-margin: 0;
-font-family: 'Poppins', sans-serif;
-background-color: #0d1117;
-color: #e6edf3;
-line-height: 1.6;
-scroll-behavior: smooth;
-}
-header {
-text-align: center;
-padding: 3rem 1rem 2rem 1rem;
-border-bottom: 2px solid #1f6feb;
-position: relative;
-}
-header h1 {
-color: #58a6ff;
-margin-bottom: 0.3rem;
-}
-header p {
-color: #8b949e;
-font-size: 1rem;
-}
-nav {
-position: fixed;
-top: 0;
-width: 100%;
-background: rgba(13, 17, 23, 0.95);
-display: flex;
-justify-content: center;
-gap: 2rem;
-padding: 0.8rem;
-border-bottom: 1px solid #1f6feb;
-z-index: 10;
-}
-nav a {
-color: #e6edf3;
-text-decoration: none;
-font-weight: 500;
-transition: color 0.3s;
-}
-nav a:hover {
-color: #58a6ff;
-}
-section {
-max-width: 900px;
-margin: 3rem auto;
-padding: 1rem;
-opacity: 0;
-transform: translateY(40px);
-transition: all 0.8s ease-in-out;
-}
-section.visible {
-opacity: 1;
-transform: translateY(0);
-}
-h2 {
-color: #58a6ff;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashlesa Behera | Frontend Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d1117;
+      color: #e6edf3;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+      border-bottom: 2px solid #1f6feb;
+      position: relative;
+    }
+    header h1 {
+      color: #58a6ff;
+      margin-bottom: 0.3rem;
+    }
+    header p {
+      color: #8b949e;
+      font-size: 1rem;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(13, 17, 23, 0.95);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.8rem;
+      border-bottom: 1px solid #1f6feb;
+      z-index: 10;
+    }
+    nav a {
+      color: #e6edf3;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #58a6ff;
+    }
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 1rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-in-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: #58a6ff;
+      border-left: 4px solid #1f6feb;
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skills span {
+      display: inline-block;
+      background: #1f6feb;
+      color: #fff;
+      padding: 0.3rem 0.7rem;
+      margin: 0.3rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: transform 0.3s;
+    }
+    .skills span:hover {
+      transform: scale(1.1);
+    }
+    .card {
+      background: #161b22;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(31,111,235,0.3);
+    }
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid #1f6feb;
+      color: #8b949e;
+      font-size: 0.9rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      background: #161b22;
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+    input, textarea {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      color: #e6edf3;
+      padding: 0.6rem;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    input:focus, textarea:focus {
+      border-color: #1f6feb;
+      outline: none;
+    }
+    button {
+      background: #1f6feb;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #388bff;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Ashlesa Behera</h1>
+    <p>Frontend Developer | Java | SQL | DSA</p>
+    <p>📍 Bhubaneswar, Odisha | <a href="mailto:ashlesabehera28@gmail.com">ashlesabehera28@gmail.com</a> | <a href="https://linkedin.com/in/ashlesa" target="_blank">LinkedIn</a> | <a href="https://github.com/ashlesa298" target="_blank">GitHub</a></p>
+  </header>
+
+  <section id="about">
+    <h2><i class="fa-solid fa-user"></i> About Me</h2>
+    <p>I am a final-year B.Tech student in Computer Science and Engineering at ITER, Bhubaneswar. Passionate about building responsive and user-friendly web applications using JavaScript, HTML, CSS, and modern frontend tools. I enjoy problem-solving and crafting clean, intuitive UI designs that enhance user experiences.</p>
+  </section>
+
+  <section id="skills">
+    <h2><i class="fa-solid fa-code"></i> Skills</h2>
+    <div class="skills">
+      <span>Java</span><span>SQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>DSA</span><span>GitHub</span><span>Frontend Development</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
+    <div class="card">
+      <h3>Currency Converter</h3>
+      <p>Developed a responsive web app using HTML, CSS, and JavaScript with live API integration. Added dark/light mode and offline fallback for better usability.</p>
+    </div>
+    <div class="card">
+      <h3>Payment Form</h3>
+      <p>Built a secure payment form with real-time JavaScript validation for card details and dynamic formatting to enhance user experience.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2><i class="fa-solid fa-briefcase"></i> Internship Experience</h2>
+    <div class="card">
+      <h3>Web Developer Intern | Codsoft</h3>
+      <p>Created responsive, interactive web pages using HTML, CSS, and JavaScript. Designed UI components and managed form handling with basic animations.</p>
+    </div>
+    <div class="card">
+      <h3>Data Analytics Intern | Tata Group (Forage)</h3>
+      <p>Completed an AI-focused data analytics simulation for the Financial Services team. Proposed predictive models and AI-driven collection strategies.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2><i class="fa-solid fa-envelope"></i> Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Designed & Developed by Ashlesa Behera © 2025</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
 </html>
