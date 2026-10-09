@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply font-sans bg-[#f6f7fc] text-slate-700 antialiased overflow-x-hidden;
+}
+
+.dark body {
+  @apply bg-[#070b17] text-slate-300;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display text-slate-900;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4 {
+  @apply text-white;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl
+    border border-white/70 dark:border-white/10
+    shadow-xl shadow-indigo-500/5 rounded-2xl;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full
+    bg-indigo-50 dark:bg-indigo-400/10
+    text-indigo-700 dark:text-indigo-200
+    px-3 py-1 text-xs font-semibold;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2
+    rounded-xl px-5 py-3 text-sm font-semibold transition
+    focus-visible:outline focus-visible:outline-2
+    focus-visible:outline-offset-2
+    focus-visible:outline-brand-500;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-brand-500 to-violet2
+    text-white shadow-lg shadow-indigo-500/30
+    hover:shadow-indigo-500/50;
+  }
+
+  .btn-ghost {
+    @apply btn bg-white/70 dark:bg-white/10
+    border border-slate-200 dark:border-white/15
+    text-slate-800 dark:text-white
+    hover:bg-white dark:hover:bg-white/20;
+  }
+}
+
+/* ================================
+   FUTURISTIC BACKGROUND
+================================ */
+
+body {
+  position: relative;
+}
+
+/* Tech grid */
+.bg-grid {
+  background-image:
+    linear-gradient(
+      rgba(79, 107, 237, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(79, 107, 237, 0.07) 1px,
+      transparent 1px
+    );
+
+  background-size: 44px 44px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at 50% 30%,
+      #000 25%,
+      transparent 75%
+    );
+}
+
+/* Floating light particles */
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 30px, 0) scale(0.7);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.7;
+  }
+
+  70% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translate3d(40px, -180px, 0) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: #7c5cff;
+  animation: drift linear infinite;
+  pointer-events: none;
+}
+
+/* ================================
+   AMBIENT LIGHT
+================================ */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(99, 102, 241, 0.16),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(168, 85, 247, 0.14),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(236, 72, 153, 0.08),
+      transparent 28%
+    );
+
+  filter: blur(30px);
+}
+
+/* Moving light field */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(99, 102, 241, 0.08),
+      transparent 35%
+    );
+
+  animation: backgroundPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* ================================
+   GLASS EFFECT
+================================ */
+
+.glass {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.12),
+      transparent 35%,
+      rgba(99, 102, 241, 0.06)
+    );
+
+  opacity: 0.7;
+}
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+    opacity: 0.25;
+  }
+
+  body::after {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .bg-grid {
+    background-size: 32px 32px;
+  }
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(79,107,237,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,107,237,.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 20%,
+    transparent 78%
+  );
+}
+
+.dark .bg-grid {
+  background-image:
+    linear-gradient(rgba(129,140,248,.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129,140,248,.09) 1px, transparent 1px);
+}
