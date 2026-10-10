@@ -1,6 +1,6 @@
 // Single source of truth for all portfolio content.
 // Replace MY_IMAGE_URL with the URL of your photo. Put your resume at public/resume.pdf.
-export const PHOTO_URL = 'MY_IMAGE_URL'
+export const PHOTO_URL = '/pic1.jpg'
 export const RESUME_URL = 'https://drive.google.com/file/d/1QAMAei4cWivGGnE56GYJ6c0DTY_hqHfD/view?usp=sharing'
 
 export const profile = {
